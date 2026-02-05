@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Preeti ❤️ Aftab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Poppins,sans-serif;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  min-height:100vh;
+  overflow-x:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:20px;
+  animation:float 7s linear infinite;
+  opacity:.7;
+}
+@keyframes float{
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-120vh);opacity:0}
+}
+
+.card{
+  background:#fff;
+  width:92%;
+  max-width:900px;
+  border-radius:30px;
+  padding:45px 30px;
+  text-align:center;
+  box-shadow:0 30px 60px rgba(0,0,0,.25);
+  z-index:2;
+}
+
+.hidden{display:none}
+
+h1{
+  font-family:'Playfair Display',serif;
+  color:#e63946;
+  font-size:2.3rem;
+  margin-bottom:20px;
+}
+
+p{
+  font-size:1rem;
+  line-height:1.9;
+  color:#333;
+}
+
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:22px;
+  margin-top:25px;
+}
+button{
+  padding:14px 30px;
+  font-size:1.05rem;
+  border-radius:30px;
+  border:none;
+  cursor:pointer;
+}
+#yesBtn{background:#e63946;color:#fff}
+#noBtn{background:#ccc}
+
+#typed{
+  min-height:55px;
+  font-size:2rem;
+}
+
+.special{
+  margin-top:60px;
+  padding:45px 30px;
+  border-radius:28px;
+  background:linear-gradient(135deg,#ffe3ef,#fff8fb);
+  box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+.special h2{
+  font-family:'Great Vibes',cursive;
+  font-size:2.6rem;
+  color:#e63946;
+  margin-bottom:25px;
+}
+#specialText{
+  font-size:1.05rem;
+  font-style:italic;
+  min-height:260px;
+}
+
+.last-note{
+  margin-top:50px;
+  padding:28px 24px;
+  border-radius:22px;
+  background:rgba(255,255,255,0.85);
+  font-size:0.95rem;
+  line-height:1.8;
+  color:#444;
+  box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+footer{
+  margin-top:45px;
+  font-family:'Playfair Display',serif;
+  color:#e63946;
+  font-size:1.1rem;
+}
+
+/* designed by */
+.designed{
+  margin-top:12px;
+  font-size:0.8rem;
+  color:#999;
+  font-family:Poppins,sans-serif;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerText="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=16+Math.random()*20+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),7000);
+},500);
+</script>
+
+<div class="card" id="page1">
+  <h1>Will you be my Valentine,<br>Preeti? 💘</h1>
+  <div class="buttons">
+    <button id="yesBtn" onclick="openSurprise()">Yes 💕</button>
+    <button id="noBtn" onclick="growYes()">No 🙈</button>
+  </div>
+</div>
+
+<div class="card hidden" id="page2">
+
+  <h1 id="typed"></h1>
+
+  <p>
+    Preeti,<br>
+    you are not just someone I love —<br>
+    you are someone I choose, every day 🤍
+  </p>
+
+  <div class="special">
+    <h2>A Special Message For You</h2>
+    <p id="specialText"></p>
+  </div>
+
+  <div class="last-note">
+    Mujhe pata hai hum dono ka shayad kuch nahi ho sakta.  
+    Hum dono bilkul different hain,  
+    aur galti bhi shayad meri hi thi.  
+    Main thoda zyada close aa gaya,  
+    aur shayad mujhe tumse confess nahi karna chahiye tha.
+    <br><br>
+    Par aksar cheezein late samajh aati hain.  
+    Bas itna chahta hoon ki jo bhi humara bond tha,  
+    jo bhi achhi bonding thi —  
+    usse koi galat ya bura naam na mile.
+  </div>
+
+  <footer>
+    With love, respect & honesty,<br>
+    <strong>Aftab ❤️</strong>
+  </footer>
+
+  <!-- 👇 yahin add hua -->
+  <div class="designed">Designed by Aman</div>
+
+</div>
+
+<audio id="song" src="ek-ladki-ko-dekha.mp3" loop autoplay muted></audio>
+
+<script>
+window.addEventListener("load",()=>{
+  const song=document.getElementById("song");
+  song.muted=false;
+  song.play().catch(()=>{});
+});
+
+let scale=1;
+function growYes(){
+  scale+=0.2;
+  document.getElementById("yesBtn").style.transform=`scale(${scale})`;
+}
+
+function openSurprise(){
+  document.getElementById("page1").classList.add("hidden");
+  document.getElementById("page2").classList.remove("hidden");
+  document.getElementById("song").play();
+  typeTitle();
+  typeSpecial();
+}
+
+let titleText="Preeti — my love, my peace 💖";
+let i=0;
+function typeTitle(){
+  if(i<titleText.length){
+    document.getElementById("typed").innerHTML+=titleText.charAt(i);
+    i++;
+    setTimeout(typeTitle,80);
+  }
+}
+
+let message=`My Love,
+
+Jab se tum meri zindagi mein aayi ho, sab kuch alag sa ho gaya hai. Pehle jo din bas guzar jaate the, ab unmein tumhari yaadein basi hoti hain. Tumhari ek muskurahat mere saare gham chura leti hai, aur tumhari ek baat mera din bana deti hai.
+
+Mujhe nahi pata main tumse itna pyaar kab karne laga, par ab itna zaroor jaanta hoon ki tumhare bina sab adhoora lagta hai. Tum meri aadat nahi, meri zarurat ban chuki ho.
+
+Main wada karta hoon ki har mushkil mein tumhara saath nibhaunga. Tum meri zindagi ka sabse khoobsurat hissa ho.
+
+I love you more than words can ever explain.`;
+
+let j=0;
+function typeSpecial(){
+  if(j<message.length){
+    document.getElementById("specialText").innerHTML +=
+      message[j]==="\n" ? "<br>" : message[j];
+    j++;
+    setTimeout(typeSpecial,40);
+  }
+}
+</script>
+
+</body>
+</html>
