@@ -59,6 +59,7 @@ p{
   color:#333;
 }
 
+/* buttons */
 .buttons{
   display:flex;
   justify-content:center;
@@ -75,11 +76,13 @@ button{
 #yesBtn{background:#e63946;color:#fff}
 #noBtn{background:#ccc}
 
+/* typing */
 #typed{
   min-height:55px;
   font-size:2rem;
 }
 
+/* special message */
 .special{
   margin-top:60px;
   padding:45px 30px;
@@ -99,36 +102,24 @@ button{
   min-height:260px;
 }
 
-.last-note{
-  margin-top:50px;
-  padding:28px 24px;
-  border-radius:22px;
-  background:rgba(255,255,255,0.85);
-  font-size:0.95rem;
-  line-height:1.8;
-  color:#444;
-  box-shadow:0 15px 35px rgba(0,0,0,.12);
-}
-
+/* footer */
 footer{
   margin-top:45px;
   font-family:'Playfair Display',serif;
   color:#e63946;
-  font-size:1.1rem;
+  font-size:1.05rem;
 }
-
-/* designed by */
-.designed{
-  margin-top:12px;
-  font-size:0.8rem;
-  color:#999;
-  font-family:Poppins,sans-serif;
+.footer-small{
+  font-size:0.85rem;
+  margin-top:10px;
+  color:#888;
 }
 </style>
 </head>
 
 <body>
 
+<!-- floating hearts -->
 <script>
 setInterval(()=>{
   const h=document.createElement("div");
@@ -141,6 +132,7 @@ setInterval(()=>{
 },500);
 </script>
 
+<!-- PAGE 1 -->
 <div class="card" id="page1">
   <h1>Will you be my Valentine,<br>Preeti? 💘</h1>
   <div class="buttons">
@@ -149,6 +141,7 @@ setInterval(()=>{
   </div>
 </div>
 
+<!-- PAGE 2 -->
 <div class="card hidden" id="page2">
 
   <h1 id="typed"></h1>
@@ -164,27 +157,11 @@ setInterval(()=>{
     <p id="specialText"></p>
   </div>
 
-  <div class="last-note">
-    Mujhe pata hai hum dono ka shayad kuch nahi ho sakta.  
-    Hum dono bilkul different hain,  
-    aur galti bhi shayad meri hi thi.  
-    Main thoda zyada close aa gaya,  
-    aur shayad mujhe tumse confess nahi karna chahiye tha.
-    <br><br>
-    Par aksar cheezein late samajh aati hain.  
-    Bas itna chahta hoon ki jo bhi humara bond tha,  
-    jo bhi achhi bonding thi —  
-    usse koi galat ya bura naam na mile.
-  </div>
-
   <footer>
-    With love, respect & honesty,<br>
+    With love,<br>
     <strong>Aftab ❤️</strong>
+    <div class="footer-small">Designed by Aman</div>
   </footer>
-
-  <!-- 👇 yahin add hua -->
-  <div class="designed">Designed by Aman</div>
-
 </div>
 
 <audio id="song" src="ek-ladki-ko-dekha.mp3" loop autoplay muted></audio>
@@ -210,6 +187,7 @@ function openSurprise(){
   typeSpecial();
 }
 
+/* title typing */
 let titleText="Preeti — my love, my peace 💖";
 let i=0;
 function typeTitle(){
@@ -220,13 +198,17 @@ function typeTitle(){
   }
 }
 
+/* special message typing */
 let message=`My Love,
 
-Jab se tum meri zindagi mein aayi ho, sab kuch alag sa ho gaya hai. Pehle jo din bas guzar jaate the, ab unmein tumhari yaadein basi hoti hain. Tumhari ek muskurahat mere saare gham chura leti hai, aur tumhari ek baat mera din bana deti hai.
+Jab se tum meri zindagi mein aayi ho, sab kuch alag sa ho gaya hai.
+Pehle jo din bas guzar jaate the, ab unmein tumhari yaadein basi hoti hain.
 
-Mujhe nahi pata main tumse itna pyaar kab karne laga, par ab itna zaroor jaanta hoon ki tumhare bina sab adhoora lagta hai. Tum meri aadat nahi, meri zarurat ban chuki ho.
+Tumhari ek muskurahat mere saare gham chura leti hai,
+aur tumhari ek baat mera din bana deti hai.
 
-Main wada karta hoon ki har mushkil mein tumhara saath nibhaunga. Tum meri zindagi ka sabse khoobsurat hissa ho.
+Tum meri aadat nahi,
+meri zarurat ban chuki ho.
 
 I love you more than words can ever explain.`;
 
@@ -243,3 +225,4 @@ function typeSpecial(){
 
 </body>
 </html>
+
